@@ -16,6 +16,20 @@
 
 页头的调色板按钮可在三套主题之间切换：**曜石青玉**（默认）、**午夜极光**、**暖黑香槟**。选择只保存在本机浏览器的 `token-dashboard.theme` 中，不会进入 URL 或触发数据同步。
 
+> 以下截图均由隔离演示数据库生成。设备、账号、会话、日期与 Token 数值全部为虚构示例，不包含任何用户数据。
+
+#### 曜石青玉
+
+![曜石青玉主题的 Token Dashboard 虚构数据演示](./docs/screenshots/themes/obsidian-jade-demo.png)
+
+#### 午夜极光
+
+![午夜极光主题的 Token Dashboard 虚构数据演示](./docs/screenshots/themes/midnight-aurora-demo.png)
+
+#### 暖黑香槟
+
+![暖黑香槟主题的 Token Dashboard 虚构数据演示](./docs/screenshots/themes/warm-champagne-demo.png)
+
 
 ## 安装与使用
 
@@ -139,7 +153,7 @@ npm --prefix frontend run build
 
 ## 安全与隐私
 
-- 不要提交数据库、日志、真实使用截图、Tailnet 地址、`agent-config.json` 或配置完成的 Agent ZIP。
+- 不要提交数据库、日志、真实使用截图、Tailnet 地址、`agent-config.json` 或配置完成的 Agent ZIP；公开文档截图只能使用隔离生成的虚构演示数据。
 - 远程访问应使用 Tailscale Serve；不要使用 Funnel 或把端口直接暴露到公网。
 - 安全问题请参阅 [`SECURITY.md`](./SECURITY.md)，贡献说明见 [`CONTRIBUTING.md`](./CONTRIBUTING.md)。
 
