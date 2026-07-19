@@ -90,6 +90,7 @@ class CodexCollector:
                 "model": "unknown",
                 "totals": {key: 0 for key in TOTAL_KEYS},
                 "line_number": 0,
+                "skip_fork_history": False,
             }
 
         result = {"events_added": 0, "events_seen": 0, "malformed_lines": 0}
@@ -141,10 +142,18 @@ class CodexCollector:
         record_type = record.get("type")
         if record_type == "session_meta":
             state["session_id"] = str(payload.get("id") or state.get("session_id"))
+            # Forked/sub-agent rollouts can begin with a replay of the parent
+            # thread. Those token_count rows are historical copies, not new
+            # usage. Keep advancing their cumulative counters, but do not emit
+            # events until the child receives its first model-bearing context.
+            state["skip_fork_history"] = bool(
+                payload.get("forked_from_id") or payload.get("parent_thread_id")
+            )
             return
         if record_type == "turn_context":
             if payload.get("model"):
                 state["model"] = str(payload["model"])
+                state["skip_fork_history"] = False
             return
         if record_type != "event_msg" or payload.get("type") != "token_count":
             return
@@ -169,6 +178,9 @@ class CodexCollector:
             else {key: current[key] - previous[key] for key in TOTAL_KEYS}
         )
         state["totals"] = current
+
+        if state.get("skip_fork_history"):
+            return
 
         # Component-less token_count rows are context indicators and do not
         # advance cumulative billable usage. They must not inflate totals.

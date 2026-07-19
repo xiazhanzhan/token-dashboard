@@ -117,3 +117,52 @@ def test_codex_incomplete_line_is_retried(database, settings):
     with database.transaction() as conn:
         result = collector.collect(conn)
     assert result["events_added"] == 1
+
+
+def test_codex_forked_history_is_not_counted_twice(database, settings):
+    path = settings.codex_home / "sessions" / "forked.jsonl"
+    write_records(
+        path,
+        [
+            {
+                "timestamp": "2026-07-19T00:00:00Z",
+                "type": "session_meta",
+                "payload": {
+                    "id": "child-session",
+                    "forked_from_id": "parent-session",
+                    "parent_thread_id": "parent-session",
+                    "thread_source": "subagent",
+                },
+            },
+            # Copied parent history. It advances the child's cumulative
+            # baseline but must not become a second usage event.
+            token_event("2026-07-19T00:00:01Z", 1_000, 600, 100, 25),
+            token_event("2026-07-19T00:00:02Z", 1_500, 900, 150, 35),
+            {
+                "timestamp": "2026-07-19T00:00:03Z",
+                "type": "turn_context",
+                "payload": {"model": "gpt-child"},
+            },
+            # Only the child's new delta should be stored.
+            token_event("2026-07-19T00:00:04Z", 1_700, 1_000, 190, 45),
+        ],
+    )
+    collector = CodexCollector(database, settings.codex_home, settings.timezone)
+
+    with database.transaction() as conn:
+        result = collector.collect(conn)
+    assert result["events_added"] == 1
+
+    with database.connect() as conn:
+        rows = conn.execute("SELECT * FROM usage_events").fetchall()
+    assert len(rows) == 1
+    assert rows[0]["model"] == "gpt-child"
+    assert rows[0]["input_tokens"] == 100
+    assert rows[0]["cache_read_tokens"] == 100
+    assert rows[0]["output_tokens"] == 40
+    assert rows[0]["reasoning_tokens"] == 10
+    assert rows[0]["total_tokens"] == 240
+
+    with database.transaction() as conn:
+        repeat = collector.collect(conn)
+    assert repeat["events_added"] == 0
