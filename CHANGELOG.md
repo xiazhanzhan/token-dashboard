@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.2] - 2026-07-19
+
+### Added
+
+- Build provenance attestations for tagged macOS and Windows Host packages.
+- Direct private vulnerability reporting guidance and best-effort response
+  targets.
+
+### Changed
+
+- Pinned every GitHub Action to an immutable commit.
+- Reduced workflow permissions to read-only by default and granted release
+  write permissions only to the release job.
+- Updated the backend test dependency to `pytest>=9.0.3,<10`.
+
 ## [0.1.1] - 2026-07-19
 
 ### Added

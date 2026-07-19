@@ -9,7 +9,7 @@
 
 > 非官方社区项目，与 OpenAI、Codex、Hermes 及相关厂商不存在隶属、授权或背书关系。
 
-当前公开版本为 **0.1.1 预览版**。macOS 流程已完成本机验证；Windows Host 安装器仍建议在代表性的 Windows 10/11 x64 设备上完成最终端到端验收。
+当前公开版本为 **0.1.2 预览版**。macOS 流程已完成本机验证；Windows Host 安装器仍建议在代表性的 Windows 10/11 x64 设备上完成最终端到端验收。
 
 一个自托管在个人电脑或家庭服务器上的 Token 用量统计看板，统一读取：
 
@@ -183,6 +183,7 @@ npm --prefix frontend run build
 
 - 不要提交数据库、日志、真实使用截图、Tailnet 地址、`agent-config.json` 或配置完成的 Agent ZIP；公开文档截图只能使用隔离生成的虚构演示数据。
 - 远程访问应使用 Tailscale Serve；不要使用 Funnel 或把端口直接暴露到公网。
+- 带版本标签的安装包同时发布 SHA-256 校验文件和 GitHub 构建来源证明，可使用 `gh attestation verify <安装包> --repo xiazhanzhan/token-dashboard` 验证。
 - 安全问题请参阅 [`SECURITY.md`](./SECURITY.md)，贡献说明见 [`CONTRIBUTING.md`](./CONTRIBUTING.md)。
 
 ## 项目与社区

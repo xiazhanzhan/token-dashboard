@@ -18,7 +18,7 @@ use Codex and Hermes across more than one computer or account. Each computer
 reads its own local usage records and sends only normalized Token counters to a
 Mac or Windows host that you control.
 
-The public version is currently **0.1.1 preview**. The macOS flow has been
+The public version is currently **0.1.2 preview**. The macOS flow has been
 validated locally. The Windows Host installer should still be treated as a
 preview until it has completed end-to-end validation on representative Windows
 10/11 x64 machines.
@@ -155,6 +155,14 @@ The repository must never contain real databases, logs, Tailnet addresses,
 configured `agent-config.json` files, configured Agent ZIPs, real usage
 screenshots, or session files. See [Security Policy](./SECURITY.md) and
 [Safe sharing](./SHARE-SAFETY.md).
+
+Tagged releases include SHA-256 checksums and GitHub artifact attestations.
+After downloading a release asset, you can verify its build provenance with:
+
+```bash
+gh attestation verify Token-Dashboard-Host-macOS.zip \
+  --repo xiazhanzhan/token-dashboard
+```
 
 ## API
 
