@@ -8,13 +8,24 @@ branch. Older releases may not receive backports.
 ## Reporting a vulnerability
 
 Please do not open a public issue for a vulnerability that could expose local
-usage data, a Tailnet address, or a remote-device credential. Use GitHub's
-private vulnerability reporting feature when it is enabled for this
-repository. If it is not available, contact the repository owner privately.
+usage data, a Tailnet address, or a remote-device credential. Use
+[GitHub private vulnerability reporting](https://github.com/xiazhanzhan/token-dashboard/security/advisories/new).
+If that form is unavailable, contact the repository owner privately using the
+contact method on the owner's GitHub profile.
 
 Include only the minimum information needed to reproduce the problem. Never
 attach a real Token database, Codex/Hermes data, log file, configured Agent ZIP,
 or `agent-config.json`.
+
+The maintainer will aim to acknowledge a report within 7 days, provide an
+initial assessment within 14 days, and coordinate a disclosure timeline based
+on severity and the availability of a safe fix. These targets are best-effort
+for a community-maintained project and may change when upstream Codex or Hermes
+behavior must first be verified.
+
+Published advisories and fixed versions are listed in the repository's
+[Security advisories](https://github.com/xiazhanzhan/token-dashboard/security/advisories)
+and [Releases](https://github.com/xiazhanzhan/token-dashboard/releases).
 
 ## Credential exposure response
 
