@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.1] - 2026-07-19
+
+### Added
+
+- English default README with a complete Chinese companion README.
+- Privacy-safe Social Preview asset and vertical theme previews.
+- Code of Conduct, Support guide, Roadmap, Issue forms, and pull-request
+  template.
+- Linux, macOS, and Windows backend CI matrix plus Host package smoke builds.
+- CodeQL, OpenSSF Scorecard, checksums, and automated tagged releases.
+- Maintainer launch guidance and weekly audience metrics template.
+
+### Changed
+
+- Improved repository description, Topics, Discussions, labels, and protected
+  branch workflow.
+- Fixed the cross-platform path-expansion test for Windows CI.
+
 ## [0.1.0] - 2026-07-19
 
 Initial public preview.
