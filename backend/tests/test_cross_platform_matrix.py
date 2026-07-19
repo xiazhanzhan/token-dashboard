@@ -234,6 +234,10 @@ def test_documented_macos_paths_expand_without_host_assumptions(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     monkeypatch.setenv("HOME", str(tmp_path))
+    # pathlib uses USERPROFILE rather than HOME for ``~`` expansion on
+    # Windows. Set both so this macOS configuration fixture remains portable
+    # when the same test is executed by the Windows CI runner.
+    monkeypatch.setenv("USERPROFILE", str(tmp_path))
     config = load_config(CONFIG_EXAMPLES / "agent-config.macos.example.json")
     settings = agent_settings(config)
 
