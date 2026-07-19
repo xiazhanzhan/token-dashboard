@@ -1,0 +1,77 @@
+name: Bug report
+description: Report a reproducible defect in Token Dashboard
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve Token Dashboard. **Do not upload real databases, session files, Agent configurations, credentials, Tailnet addresses, or unredacted logs/screenshots.**
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected component
+      options:
+        - macOS Host
+        - Windows Host
+        - macOS Agent
+        - Windows Agent
+        - Codex collector
+        - Hermes collector
+        - Dashboard UI
+        - Tailscale integration
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: "0.1.0 or commit SHA"
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS version, CPU architecture, Python/Node version if relevant. Remove device and user names.
+      placeholder: "macOS 15.x arm64"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Redacted diagnostics
+      description: Paste only the minimum sanitized output required. Never include credentials, Token databases, session contents, local account names, or Tailnet addresses.
+      render: shell
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: I removed credentials, real usage data, device/account names, local paths, session identifiers, and Tailnet information.
+          required: true
+
