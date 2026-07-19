@@ -1,5 +1,7 @@
 # Codex + Hermes Token Dashboard
 
+**多设备多账号 Token 统计平台**
+
 > 非官方社区项目，与 OpenAI、Codex、Hermes 及相关厂商不存在隶属、授权或背书关系。
 
 当前公开版本为 **0.1.0 预览版**。macOS 流程已完成本机验证；Windows Host 安装器仍建议在代表性的 Windows 10/11 x64 设备上完成最终端到端验收。
