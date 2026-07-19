@@ -1,6 +1,6 @@
 # Codex + Hermes Token Dashboard
 
-**多设备多账号 Token 统计平台**
+## 多设备多账号 Token 统计平台
 
 > 非官方社区项目，与 OpenAI、Codex、Hermes 及相关厂商不存在隶属、授权或背书关系。
 
