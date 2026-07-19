@@ -53,7 +53,7 @@ def create_app(settings: Optional[Settings] = None) -> FastAPI:
 
     app = FastAPI(
         title="Codex + Hermes Token Dashboard",
-        version="0.1.0",
+        version="0.1.1",
         lifespan=lifespan,
     )
     app.state.settings = settings
