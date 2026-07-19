@@ -1,0 +1,49 @@
+name: Installation help
+description: Ask for help installing a Host or Agent
+title: "[Install]: "
+labels: ["installation", "support"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Read [SUPPORT.md](../../SUPPORT.md) first. Screenshots and logs must be sanitized before upload.
+  - type: dropdown
+    id: target
+    attributes:
+      label: Installation target
+      options:
+        - macOS Host
+        - Windows Host
+        - macOS Agent
+        - Windows Agent
+        - Hermes CLI in WSL
+        - Tailscale remote access
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: "Windows 11 24H2 x64 or macOS 15.x arm64"
+    validations:
+      required: true
+  - type: textarea
+    id: stage
+    attributes:
+      label: Where installation stopped
+      description: State the last successful step and the first failing step.
+    validations:
+      required: true
+  - type: textarea
+    id: message
+    attributes:
+      label: Sanitized error message
+      render: shell
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: I did not attach a configured Agent ZIP, agent-config.json, database, session file, credential, Tailnet address, or unredacted screenshot.
+          required: true
+
