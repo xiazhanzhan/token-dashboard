@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#070908" />
+    <meta name="color-scheme" content="dark" />
+    <meta
+      name="description"
+      content="Codex 与 Hermes 本地 Token 用量统计看板"
+    />
+    <script>
+      try {
+        const savedTheme = localStorage.getItem("token-dashboard.theme");
+        if (["obsidian-jade", "midnight-aurora", "warm-champagne"].includes(savedTheme)) {
+          document.documentElement.dataset.theme = savedTheme;
+        }
+      } catch (_) {
+        // Use the default Obsidian Jade theme when storage is unavailable.
+      }
+    </script>
+    <title>Token 仪表盘</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

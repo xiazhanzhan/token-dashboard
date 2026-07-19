@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "platform": "windows",
+  "server_url": "https://REPLACE_WITH_YOUR_HOST.example.invalid",
+  "device_id": "REPLACE_WITH_DEVICE_ID",
+  "device_name": "My Windows PC",
+  "device_token": "REPLACE_WITH_DEVICE_TOKEN",
+  "data_dir": "%LOCALAPPDATA%\\Token Dashboard Agent",
+  "codex_home": "%USERPROFILE%\\.codex",
+  "hermes_database_path": "%USERPROFILE%\\.hermes\\state.db",
+  "timezone": "Asia/Shanghai",
+  "sync_interval_seconds": 60,
+  "account_keys": {
+    "codex": "codex",
+    "hermes": "hermes"
+  },
+  "account_labels": {
+    "codex": "Codex · My Windows PC",
+    "hermes": "Hermes · My Windows PC"
+  }
+}

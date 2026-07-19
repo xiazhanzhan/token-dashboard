@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "platform": "macos",
+  "server_url": "https://REPLACE_WITH_YOUR_HOST.example.invalid",
+  "device_id": "REPLACE_WITH_DEVICE_ID",
+  "device_name": "My Mac",
+  "device_token": "REPLACE_WITH_DEVICE_TOKEN",
+  "data_dir": "~/Library/Application Support/Token Dashboard Agent",
+  "codex_home": "~/.codex",
+  "hermes_database_path": "~/.hermes/state.db",
+  "timezone": "Asia/Shanghai",
+  "sync_interval_seconds": 60,
+  "account_keys": {
+    "codex": "codex",
+    "hermes": "hermes"
+  },
+  "account_labels": {
+    "codex": "Codex · My Mac",
+    "hermes": "Hermes · My Mac"
+  }
+}
